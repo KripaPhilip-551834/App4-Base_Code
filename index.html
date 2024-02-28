@@ -7,43 +7,59 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
+Kripa Philip
  
 Further Information:
-http://diystream.cns.utexas.edu/
-
+http://cns.utexas.edu/fri
+ 
 Research Educator:
 Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+Through this code, we aim to provide a 4-question diagnostic tool for individuals to use to determine whether they have a likelihood of getting their period in the next 5 days or not. Based on their yes or no answers for the 4 diagnostic questions, the app presents the likelihood of getting their period in the next 5 days or not.
  
 Known Issues:
-blah, blah, blah, blah
-Ignore this error message if you see it using the javaScript console: Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.
+The known issues are that likely the individual may not be able to put all symptoms into the app and thus the app is not 100% comprehensive in diagnosing an individual.
 
-References:
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
-	
-<head> 
-	<title>Hello World</title>  
-]	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<link rel="stylesheet" href="w3.css">
-	<link rel="stylesheet" href="w3-colors-flat.css">
-</head> 
+<script>//This code states that this is the header of the section and that the title is "Hello World" </script>	
+   <head> 
+      <title>Hello World</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+   </head> 
 
+<script>// This stores the information from the questions as variables for allergy or cold.</script>
 <script>
+        var yes_period = 0; //setting the yes period counter to zero
+        var no_period = 0; //setting the no period counter to zero
 
-	//YOUR JAVASCRIPT GOES HERE
+        function periodAdd(){
+            yes_period = yes_period + 1; //creating a function to add to the counter everytime the answer to a question suggests that the use has a likelihood of getting their period in the next 5 days.
+		//alert(yes_period); attempt to remove the error box
 
-</script>	
+        }
 
+        function coldAdd(){
+            no_period = no_period + 1; //creating a function to add to the counter everytime the answer to a question suggests that the user will not get their period in the next 5 days.
+		//alert(yes_period); attempt to remove the error box
 
-<!-- THIS STYLE CODE HELPS MAKE YOUR APP LOOK GOOD. PROBABLY DONT MESS WITH IT -->
+        }
+
+	function results(){
+		var percentPeriod= (yes_period/4)*100; //calculations for period "yes"// This function creates a counter that will allow us to tally up the number of yes for period using the period variable.
+		var percentSafe= (no_period/4)*100; //calculations for no period "yes"// This function creates a counter that will allow us to tally up the number of yes for no period using the no period variable.
+		var result= document.getElementById("five"); //This function uses math and proportions to help answer with the yes or no questions whether a person has a likelihood of getting their period in the next 5 days or not
+		result.innerHTML = "Probability of getting period in next 5 days =" + percentPeriod + "<br> Probability of not getting period in next 5 days=" + percentSafe;
+	}
+  </script>
+
+<script>// This function allow the app to display pages within the html body.</script>
 <style>	
 .body {
      margin: 0em;
@@ -65,11 +81,86 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     z-index: 1;
 }
 </style>
-
+	
+<script>// This creates the title of the app as "Upcoming Period or Not?"</script>
 <body>
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Upcoming Period of Not??</h1>
+</div>
 	
-	<!-- HERE IS WHERE ALL OF YOUR HTML PAGES GO -->
-	REPLACE THIS TEXT
+<div id="content" class="w3-container">
+	<p>Are you feeling like you might have your period coming up but are not sure?. Answer a few short questions to find out!</p>
 	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+<script>//Add a question to the first page of the app to explain to users what the app does and provide a disclaimer</script>
+<div class="page" id="one">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 1</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p> Are your eyes watery or itchy?</p> 
+	<a href="#two" onclick="periodAdd();" class="w3-btn w3-black"> Yes </a>
+	<a href="#two" onclick="coldAdd();"class="w3-btn w3-black"> No </a>
+    	</div>
+</div>
+<script>//Add button for question number 1 regarding whether the user's eyes are watery or itchy</script>
+<div class="page" id="two">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+	<p>Do you have a fever?</p>
+	<a href="#three" onclick="coldAdd();" class="w3-btn w3-black"> Yes </a>
+	<a href="#three" onclick="periodAdd();"class="w3-btn w3-black"> No </a>
+	</div>
+</div>	
+<script>//Add button for question number 2 regarding if they have a fever</script>
+<div class="page" id="three">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Do you have a sore throat?</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+	<p>Do you have a sore throat?</p>
+	<a href="#four" onclick="coldAdd();" class="w3-btn w3-black"> Yes </a>
+	<a href="#four" onclick="periodAdd();"class="w3-btn w3-black"> No </a>
+	</div>
+</div>	
+<script>//Add button for question number 3 regarding if they have a sore throat</script>
+<div class="page" id="four">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Are your symptoms seasonal or chronic?</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+	<p>Are your symptoms seasonal or chronic?</p>
+	<a href="#five" onclick="periodAdd();" class="w3-btn w3-black"> Yes </a>
+	<a href="#five" onclick="coldAdd();"class="w3-btn w3-black"> No </a>
+	</div>
+</div>	
+<script>//Add button for question number 4 regarding if their symptoms are seasonal or chronic</script>
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	<p>DIY!</p>
+</footer>
+<script>// This creates the footer of the app as "DIY!"</script>
+
+<div class="page" id="five">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>End of Questionnaire</h1>
+	</div>
+	<div id="content" class= "w3-container">
+		<button class="w3-btn w3-indigo" onclick="results();"> Results </button>
+		<p id="results"></p>
+	</div>
+</div>
+<script>//Creating the results page by changing the html</script>
+
 </body>
 </html>
+

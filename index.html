@@ -45,7 +45,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
         }
 
-        function coldAdd(){
+        function safeAdd(){
             no_period = no_period + 1; //creating a function to add to the counter everytime the answer to a question suggests that the user will not get their period in the next 5 days.
 		//alert(yes_period); attempt to remove the error box
 
@@ -85,7 +85,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <script>// This creates the title of the app as "Upcoming Period or Not?"</script>
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Upcoming Period of Not??</h1>
+	<h1>Upcoming Period or Not?</h1>
 </div>
 	
 <div id="content" class="w3-container">
@@ -103,48 +103,48 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p> Are your eyes watery or itchy?</p> 
+        <p> Are you experiencing severe cramping or bloating?</p> 
 	<a href="#two" onclick="periodAdd();" class="w3-btn w3-black"> Yes </a>
-	<a href="#two" onclick="coldAdd();"class="w3-btn w3-black"> No </a>
+	<a href="#two" onclick="safeAdd();"class="w3-btn w3-black"> No </a>
     	</div>
 </div>
-<script>//Add button for question number 1 regarding whether the user's eyes are watery or itchy</script>
+<script>//Add button for question number 1 regarding whether the user has bloating or cramping</script>
 <div class="page" id="two">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-	<p>Do you have a fever?</p>
-	<a href="#three" onclick="coldAdd();" class="w3-btn w3-black"> Yes </a>
+	<p>Have you finished a menstrual cycle in the last 2-3 weeks?</p>
+	<a href="#three" onclick="safeAdd();" class="w3-btn w3-black"> Yes </a>
 	<a href="#three" onclick="periodAdd();"class="w3-btn w3-black"> No </a>
 	</div>
 </div>	
-<script>//Add button for question number 2 regarding if they have a fever</script>
+<script>//Add button for question number 2 regarding if they have had a recent menstrual cycle</script>
 <div class="page" id="three">
 	<div class="w3-container w3-flat-carrot">
-		<h1>Do you have a sore throat?</h1>
+		<h1>Question 3</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-	<p>Do you have a sore throat?</p>
-	<a href="#four" onclick="coldAdd();" class="w3-btn w3-black"> Yes </a>
+	<p>Are you on any form of regular birth control?</p>
+	<a href="#four" onclick="safeAdd();" class="w3-btn w3-black"> Yes </a>
 	<a href="#four" onclick="periodAdd();"class="w3-btn w3-black"> No </a>
 	</div>
 </div>	
-<script>//Add button for question number 3 regarding if they have a sore throat</script>
+<script>//Add button for question number 3 regarding if they are on any sort of birth control</script>
 <div class="page" id="four">
 	<div class="w3-container w3-flat-carrot">
-		<h1>Are your symptoms seasonal or chronic?</h1>
+		<h1>Question 4</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-	<p>Are your symptoms seasonal or chronic?</p>
+	<p>Are you feeling fatigued or noticing recent drastic mood swings?</p>
 	<a href="#five" onclick="periodAdd();" class="w3-btn w3-black"> Yes </a>
-	<a href="#five" onclick="coldAdd();"class="w3-btn w3-black"> No </a>
+	<a href="#five" onclick="safeAdd();"class="w3-btn w3-black"> No </a>
 	</div>
 </div>	
-<script>//Add button for question number 4 regarding if their symptoms are seasonal or chronic</script>
+<script>//Add button for question number 4 regarding if their emotional state is related to their period</script>
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
